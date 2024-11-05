@@ -1,0 +1,24 @@
+\setminted{
+	frame=lines,
+	framesep=2mm,
+	baselinestretch=1.2,
+	fontsize=\footnotesize,
+	linenos,
+	autogobble
+}
+
+\usemintedstyle{tango}
+
+% Pseudocode
+\newenvironment{pseudo}{
+\begin{algorithm}[H] 
+	\SetAlgorithmName{\GetTranslation{program}}{\GetTranslation{listOfPrograms}}%
+	
+	\SetKwFor{For}{for}{do}{od}
+	\SetKwFor{While}{while}{do}{od}
+	\SetKwIF{If}{ElseIf}{Else}{if}{then}{else if}{else}{fi}
+	\SetAlgoLined
+
+}{
+\end{algorithm}
+}

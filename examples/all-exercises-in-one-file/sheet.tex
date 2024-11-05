@@ -1,0 +1,49 @@
+% Document class 
+% (Replace ngerman by english for sheets in submitted in english)
+\documentclass[10pt,a4paper,ngerman]{article}
+
+% Relative path to the headers directory
+\def\headersdir{../../headers/}
+\input{\headersdir udstasksheet.tex}
+
+% Lecture name
+\lecture{Grundzüge von \LaTeX}
+
+% Submission number
+\setsheetno{1}
+
+% Author name(s)
+\author{Max Mustermann, Maria Musterfrau}
+
+% Due date
+\date{01.01.1970}
+
+\begin{document}
+    % This renders the document head
+    \maketitle
+
+    % A named exercise
+    \ex[Exercise Title]
+    Lorem ipsum dolor set amet.
+
+    % A named subexercise
+    \subex[Subexercise Title]
+    Lorem ipsum dolor set amet.
+
+    % A named sub-subexercise
+    \subsubex[Sub-Subexercise Title]
+    Lorem ipsum dolor set amet.
+
+    % An unnamed exercise
+    \ex
+    Lorem ipsum dolor set amet.
+
+    % An unnamed subexercise
+    \subex
+    Lorem ipsum dolor set amet.
+
+    % An unnamed sub-subexercise
+    \subsubex
+    Lorem ipsum dolor set amet.
+    
+\end{document}

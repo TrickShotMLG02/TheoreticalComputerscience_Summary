@@ -1,0 +1,117 @@
+% Metadaten
+\newcommand{\thelecture}{ERROR: Missing \texttt{\textbackslash{lecture}}}
+\newcommand{\lecture}[1]{\renewcommand*{\thelecture}{#1}}
+
+\newcounter{sheetno}
+\newcommand{\setsheetno}[1]{\setcounter{sheetno}{#1}}
+
+% Exercise counter
+\newcounter{exercise}
+\newcommand{\setexno}[1]{
+    \setcounter{exercise}{#1} 
+    \addtocounter{exercise}{-1}
+}
+
+\newcounter{subexercise}
+\newcommand{\setsubexno}[1]{
+    \setcounter{subexercise}{#1} 
+    \addtocounter{subexercise}{-1}
+}
+
+\newcounter{subsubexercise}
+\newcommand{\setsubsubexno}[1]{
+    \setcounter{subsubexercise}{#1} 
+    \addtocounter{subsubexercise}{-1}
+}
+
+% Exercise style
+\newcommand{\sheetstyle}{\arabic}
+\newcommand{\sheetstylearabic}{\renewcommand{\sheetstyle}{\arabic}}
+\newcommand{\sheetstyleroman}{\renewcommand{\sheetstyle}{\roman}}
+\newcommand{\sheetstyleRoman}{\renewcommand{\sheetstyle}{\Roman}}
+\newcommand{\sheetstylealph}{\renewcommand{\sheetstyle}{\alph}}
+\newcommand{\sheetstyleAlph}{\renewcommand{\sheetstyle}{\Alph}}
+\newcommand{\sheetno}{\sheetstyle{sheetno}}
+
+% Exercise style
+\newcommand{\exercisestyle}{\arabic}
+\newcommand{\exstylearabic}{\renewcommand{\exercisestyle}{\arabic}}
+\newcommand{\exstyleroman}{\renewcommand{\exercisestyle}{\roman}}
+\newcommand{\exstyleRoman}{\renewcommand{\exercisestyle}{\Roman}}
+\newcommand{\exstylealph}{\renewcommand{\exercisestyle}{\alph}}
+\newcommand{\exstyleAlph}{\renewcommand{\exercisestyle}{\Alph}}
+\newcommand{\exno}{\exercisestyle{exercise}}
+
+% Sub-Exercise style
+\newcommand{\subexercisestyle}{\alph}
+\newcommand{\subexstylearabic}{\renewcommand{\subexercisestyle}{\arabic}}
+\newcommand{\subexstyleroman}{\renewcommand{\subexercisestyle}{\roman}}
+\newcommand{\subexstyleRoman}{\renewcommand{\subexercisestyle}{\Roman}}
+\newcommand{\subexstylealph}{\renewcommand{\subexercisestyle}{\alph}}
+\newcommand{\subexstyleAlph}{\renewcommand{\subexercisestyle}{\Alph}}
+\newcommand{\subexno}{\subexercisestyle{subexercise}}
+
+% Sub-Sub-Exercise style
+\newcommand{\subsubexercisestyle}{\roman}
+\newcommand{\subsubexstylearabic}{\renewcommand{\subsubexercisestyle}{\arabic}}
+\newcommand{\subsubexstyleroman}{\renewcommand{\subsubexercisestyle}{\roman}}
+\newcommand{\subsubexstyleRoman}{\renewcommand{\subsubexercisestyle}{\Roman}}
+\newcommand{\subsubexstylealph}{\renewcommand{\subsubexercisestyle}{\alph}}
+\newcommand{\subsubexstyleAlph}{\renewcommand{\subsubexercisestyle}{\Alph}}
+\newcommand{\subsubexno}{\subsubexercisestyle{subsubexercise}}
+
+
+% Include exercise
+\def\inputex{\@ifnextchar[{\@withinputex}{\@withoutinputex}}
+\def\@withinputex[#1]#2{
+    \setcounter{exercise}{#2} 
+    \addtocounter{exercise}{-1}
+    \ex[#1]
+    \input{exercises/ex#2.tex}
+}
+\def\@withoutinputex#1{
+    \setcounter{exercise}{#1}
+    \addtocounter{exercise}{-1}
+    \ex
+    \input{exercises/ex#1.tex}
+}
+
+% Exercise
+\def\ex{\@ifnextchar[{\@withex}{\@withoutex}}
+\def\@withex[#1]{
+    \stepcounter{exercise}
+	\setcounter{subexercise}{0}
+	\setcounter{subsubexercise}{0}
+    \section{\GetTranslation{task} \exno~{\normalfont -- #1}}
+}
+\def\@withoutex{
+    \stepcounter{exercise}
+	\setcounter{subexercise}{0}
+	\setcounter{subsubexercise}{0}
+    \section{\GetTranslation{task} \exno}
+}
+
+% Subexercise
+\def\subex{\@ifnextchar[{\@withsubex}{\@withoutsubex}}
+\def\@withsubex[#1]{
+	\stepcounter{subexercise}
+	\setcounter{subsubexercise}{0}
+    \subsection{\GetTranslation{task} \exno.\subexno~{\normalfont -- #1}}
+}
+\def\@withoutsubex{
+	\stepcounter{subexercise}
+	\setcounter{subsubexercise}{0}
+    \subsection{\GetTranslation{task} \exno.\subexno}
+}
+
+
+% Subsubexercise
+\def\subsubex{\@ifnextchar[{\@withsubsubex}{\@withoutsubsubex}}
+\def\@withsubsubex[#1]{
+	\stepcounter{subsubexercise}
+    \subsubsection{\GetTranslation{task} \exno.\subexno.\subsubexno~{\normalfont -- #1}}
+}
+\def\@withoutsubsubex{
+	\stepcounter{subsubexercise}
+    \subsubsection{\GetTranslation{task} \exno.\subexno.\subsubexno}
+}

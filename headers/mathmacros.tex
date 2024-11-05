@@ -1,0 +1,86 @@
+% Mathe
+\newcommand{\dif}{\mathop{}\!\mathrm{d}} % Differential - d
+\newcommand{\im}{\mathop{}\!\mathrm{Im}\,} % Imaginäranteil
+\newcommand{\re}{\mathop{}\!\mathrm{Re}\,} % Realanteil
+\newcommand{\dgr}{^{\circ}} % Gradzeichen.
+\newcommand{\degre}{\ensuremath{^\circ}} % Auch ein Gradzeichen, aber für GeoGebra-Exporte
+\newcommand{\mvect}[1]{\left(\begin{matrix} #1 \end{matrix}\right)} % Vektor in Matrixschreibweise
+\newcommand{\abs}[1]{\left| #1 \right|} % Setzt den Inhalt in Betragsstriche
+\newcommand{\brk}[1]{\left( #1 \right)} % Setzt den Inhalt in große Klammern
+\newcommand{\sbr}[1]{\left[ #1 \right]} % Setzt den Inhalt in eckige Klammern
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace} % Setzt den Inhalt in Mengenklammern (geschweifte Klammern)
+\newcommand{\where}{\;\middle|\;} % Mengenbedingung { | }
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil} % Euklidklammern oben (aufrunden)
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor} % Euklidklammern unten (abrunden)
+\newcommand{\lequiv}{\Leftrightarrow} % Logisches äquivalent
+\newcommand{\resetaligncount}{\setcounter{equation}{0}} % Setzt den Gleichungszähler zurück
+\newcommand{\bdiv}{\mathop{\mathrm{div}}} % div operator for integer division
+
+\newcommand{\NN}{\mathbb{N}} % Mengenzeichen: Natürliche Zahlen
+\newcommand{\ZZ}{\mathbb{Z}} % Mengenzeichen: Ganze Zahlen
+\newcommand{\QQ}{\mathbb{Q}} % Mengenzeichen: Rationale Zahlen
+\newcommand{\RR}{\mathbb{R}} % Mengenzeichen: Reelle Zahlen
+\newcommand{\CC}{\mathbb{C}} % Mengenzeichen: Komplexe Zahlen
+\newcommand{\PP}{\mathbb{P}} % Mengenzeichen: Primzahlen
+\newcommand{\HH}{\mathbb{H}} % Mengenzeichen: Quarternionen
+\newcommand{\BB}{\mathbb{B}} % Mengenzeichen: Booleans
+
+\newcommand{\tx}[1]{\cdot 10^{#1}} % Zehnerpotenzen
+
+% Einheiten
+\newcommand{\unit}[1]{\,\mathrm{#1}} % Einheit
+\newcommand{\ufrac}[2]{\frac{\!\unit{#1}}{\!\unit{#2}}} % Einheitenbruch
+\newcommand{\um}{\unit{m}} % Einheit: Meter
+\newcommand{\us}{\unit{s}} % Einheit: Sekunde
+\newcommand{\uh}{\unit{h}} % Einheit: Stunde
+\newcommand{\uC}{\unit{C}} % Einheit: Coulomb
+\newcommand{\uA}{\unit{A}} % Einheit: Ampère
+\newcommand{\uN}{\unit{N}} % Einheit: Newton
+\newcommand{\ukg}{\unit{kg}} % Einheit: Kilogramm
+\newcommand{\uJ}{\unit{J}} % Einheit: Joule
+\newcommand{\uW}{\unit{W}} % Einheit: Watt
+\newcommand{\inv}{^{-1}} % Kehrbruch führ Einheiten (^-1)
+
+% Theoretische Informatik
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\R}{\mathsf{R}}
+\newcommand{\RE}{\mathsf{RE}}
+\newcommand{\REG}{\mathsf{REG}}
+\newcommand{\coRE}{\mathsf{co\!-\!RE}}
+\newcommand{\NRE}{\mathsf{NRE}}
+\newcommand{\REC}{\mathsf{REC}}
+\renewcommand{\P}{\mathsf{P}}
+\newcommand{\NP}{\mathsf{NP}}
+\newcommand{\coNP}{\mathsf{co\!-\!NP}}
+\newcommand{\DSpace}{\mathsf{DSpace}}
+\newcommand{\NSpace}{\mathsf{NSpace}}
+\newcommand{\DTime}{\mathsf{DTime}}
+\newcommand{\NTime}{\mathsf{NTime}}
+\newcommand{\NL}{\mathsf{NL}}
+
+% Statistik
+\newcommand{\EE}{\mathbb{E}} % Erwartungswert
+\newcommand{\Cov}{\mathrm{Cov}} % Covarianz
+\newcommand{\Ave}{\mathrm{Ave}} % Mittelwert
+\newcommand{\Var}{\mathrm{Var}} % Varianz
+%\newcommand{\Pr}{\mathrm{Pr}} % Wahrscheinlichkeit (Probability)
+
+% Zusammengesetzte Einheiten
+\newcommand{\velo}{\ufrac{m}{s}} % Einheiten für Geschwindigkeiten
+\newcommand{\accl}{\ufrac{m}{s^2}} % Einheiten für Beschleunigungen
+
+% Rechenschritte in align
+\newcommand{\ad}[1]{&& | \: #1}
+\newcommand{\adt}[1]{&& | \: \text{#1}}
+
+% Grabstein für Beweise
+%\newcommand{\qed}{\hfill$\blacksquare$}
+
+% Schönere Brüche
+\newcommand{\sfrac}[2]{\nicefrac{#1}{#2}}
+\newcommand{\bsfrac}[2]{\reflectbox{\nicefrac{\reflectbox{$#1$}}{\reflectbox{$#2$}}}}
+
+% Vertically-centered colons
+\newcommand{\vcol}{\vcentcolon}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}

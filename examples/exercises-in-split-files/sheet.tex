@@ -1,0 +1,30 @@
+% Document class 
+% (Replace ngerman by english for sheets in submitted in english)
+\documentclass[10pt,a4paper,ngerman]{article}
+
+% Relative path to the headers directory
+\def\headersdir{../../headers/}
+\input{\headersdir udstasksheet.tex}
+
+% Lecture name
+\lecture{Grundzüge von \LaTeX}
+
+% Submission number
+\setsheetno{1}
+
+% Author name(s)
+\author{Max Mustermann, Maria Musterfrau}
+
+% Due date
+\date{01.01.1970}
+
+\begin{document}
+    \maketitle
+
+    % Include named exercise
+    \inputex[Exercise Name]{1}
+
+    % Include unnamed exercises
+    \inputex{2}
+    \inputex{3}
+\end{document}

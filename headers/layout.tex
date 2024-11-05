@@ -1,0 +1,42 @@
+% Headers and footers
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt} 
+\lhead{\thetitle}
+\rhead{\theauthor}
+\cfoot{\GetTranslation{pageOfPages}}
+
+% Modified title layout
+\let\origmaketitle\maketitle
+\renewcommand{\maketitle}{
+	\title{\thelecture\ \ifnum\sheetno>0 -- \GetTranslation{sheet} \sheetno \fi}
+	\begin{center}
+		{\LARGE \textbf\thelecture}	\vspace*{8px}
+
+		{\large 
+			\ifnum\sheetno>0 \GetTranslation{sheet} \sheetno \fi%
+			\ifx\thedate\empty ~-- \GetTranslation{due} \thedate \fi
+		} \vspace*{8px}
+
+		{\theauthor}
+	\end{center}
+	\vspace*{8px}
+	\hrule
+	\thispagestyle{fancy}
+}
+
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\bfseries\upshape}
+
+% Better indentations
+\setlength{\parindent}{0em}
+\renewcommand{\baselinestretch}{1.3}
+\setlength{\columnsep}{1cm}
+\clubpenalty 10000
+\widowpenalty 10000
+
+
+% TikZ automata
+\tikzstyle{accepting}=[double distance=2pt, outer sep=1pt+\pgflinewidth, fill=green!20]
