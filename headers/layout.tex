@@ -17,10 +17,11 @@
 
 		{\large 
 			\ifnum\sheetno>0 \GetTranslation{sheet} \sheetno \fi%
-			\ifx\thedate\empty ~-- \GetTranslation{due} \thedate \fi
+			%\ifx\thedate\empty {} \else \GetTranslation{due} \thedate \fi
+			\ifx\theterm\empty {} \else \theterm \fi
 		} \vspace*{8px}
 
-		{\theauthor}
+		%{\theauthor}
 	\end{center}
 	\vspace*{8px}
 	\hrule
