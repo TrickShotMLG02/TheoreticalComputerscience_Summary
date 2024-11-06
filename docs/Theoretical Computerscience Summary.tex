@@ -1,4 +1,4 @@
-% !TeX root = Theoretical Computerscience Summary.tex
+% !TeX root=Theoretical Computerscience Summary.tex
 \documentclass[10pt,a4paper,english]{article}
 
 \def\headersdir{../headers/}
@@ -37,7 +37,21 @@
     \newpage
     \sectionwithtitle{Common Proof Techniques}
     \subsectionwithtitle{Pumping Lemma}
+    The pumping lemma can only be used to show that a language is not \REG. We take a word \word \elem $L$ and split it into multiple sub words $u,v,w$
+    where $\abs{v}\geq n$ with $n \ge 0$. Now there are words $x,y,z$ with $v=xyz$ and $\abs{y} \ge 0$ such that $uxy^izw$ \elem $L$ for all
+    $i$ \elem \NN. Afterwards we try to find an $i$ such that the pumped word is no longer \elem $L$ and thus we proved that the language is not regular.
+
     \subsubsectionwithtitle{Example}
+    \textbf{Exercise}:\newline
+    Show that the following language is not regular.\newline
+    Let $A=\{ 1^{(3n)} \mid n \elem \NN \}$\newline\newline
+    \textbf{Solution}:\newline
+    Let $n \geq 0$ be given.\newline
+    We choose $u=1^n$, $v=1^n$, $w=1^n$ such that $uvw=1^{3n}$ and $\abs{v}=n$.\newline
+    Let $x,y,z$ be given as $x=1^r$, $y=1^s$, $z=1^t$ with $xyz=v$ and $s \ge 0$ since $y \neq \emptyword$ and $r+s+t=n$.\newline
+    $uxy^izw=1^n 1^r 1^{s \cdot i} 1^t 1^n=1^n 1^{r+s+t} 1^{s \cdot (i-1)} 1^n$\newline
+    We choose $i=0$, therefore $1^n 1^{r+s+t} 1^{s \cdot (i-1)} 1^n = 1^n 1^{n-s} 1^n$ \notelem $A$ since it is not of the form $1^{3m}$ anymore for any $m$ \elem \NN.\newline
+    Therefore we cannot pump language $A$ and thus it is not regular.\newline
 
     \subsectionwithtitle{Myhill Nerode}
     \subsubsectionwithtitle{Example}
@@ -54,7 +68,8 @@
     Show that the following language is regular over the alphabet $ \{0,1\} $.\newline
     $L=\{x \mid x \text{ is prime and } x < 1'000'000'000\}$\newline\newline
     \textbf{Solution}:\newline
-    Since there are only finitely many prime numbers between $0$ and $1'000'000'000$, the set of the words that are accepted by $L$ is finite and thus the language is regular.
+    Since there are only finitely many prime numbers between $0$ and $1'000'000'000$, the set of the words that are accepted by $L$
+    is finite and thus the language is regular.\newline
 
 
     \subsubsectionwithtitle{Finite Automaton}
@@ -67,7 +82,7 @@
         \begin{tikzpicture}[node distance=3cm, auto]
             % Define states
             \node[state, initial] (s0)  {$S_0$};
-            \node[state, accepting, right = of s0] (s1)  {$S_1$};
+            \node[state, accepting, right=of s0] (s1)  {$S_1$};
             
             % Define transitions
             \path[->]
@@ -79,7 +94,7 @@
         \end{tikzpicture}
     \end{figure}
 
-    Since we can describe the language $L$ by the finite automaton given above, the language is regular.
+    Since we can describe the language $L$ by the finite automaton given above, the language is regular.\newline
 
 
     \subsubsectionwithtitle{Regular Expression}
