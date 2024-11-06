@@ -115,3 +115,30 @@
 	\stepcounter{subsubexercise}
     \subsubsection{\GetTranslation{task} \exno.\subexno.\subsubexno}
 }
+
+% Section with main title first, optional secondary title second
+\def\sectionwithtitle#1{\@ifnextchar[{\@sectionwithtitle{#1}}{\@sectionwithouttitle{#1}}}
+\def\@sectionwithtitle#1[#2]{
+    \section{#1~{\normalfont -- #2}}
+}
+\def\@sectionwithouttitle#1{
+    \section{#1}
+}
+
+% Subsection with main title first, optional secondary title second
+\def\subsectionwithtitle#1{\@ifnextchar[{\@subsectionwithtitle{#1}}{\@subsectionwithouttitle{#1}}}
+\def\@subsectionwithtitle#1[#2]{
+    \subsection{#1~{\normalfont -- #2}}
+}
+\def\@subsectionwithouttitle#1{
+    \subsection{#1}
+}
+
+% Subsubsection with main title first, optional secondary title second
+\def\subsubsectionwithtitle#1{\@ifnextchar[{\@subsubsectionwithtitle{#1}}{\@subsubsectionwithouttitle{#1}}}
+\def\@subsubsectionwithtitle#1[#2]{
+    \subsubsection{#1~{\normalfont -- #2}}
+}
+\def\@subsubsectionwithouttitle#1{
+    \subsubsection{#1}
+}
