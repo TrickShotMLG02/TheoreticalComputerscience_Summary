@@ -119,26 +119,77 @@
 % Section with main title first, optional secondary title second
 \def\sectionwithtitle#1{\@ifnextchar[{\@sectionwithtitle{#1}}{\@sectionwithouttitle{#1}}}
 \def\@sectionwithtitle#1[#2]{
-    \section{#1~{\normalfont -- #2}}
+    \section{#1~{\normalfont -- #2}}    % Main section with secondary title
+    \index{#1}                         % Add the main title to the index
+    \index{#1!#2}                      % Add the secondary title as a subentry
 }
 \def\@sectionwithouttitle#1{
     \section{#1}
+    \index{#1}  % Add the main title to the index
+}
+
+% Section with main title first, optional secondary title second
+\def\sectionwithtitle#1{\@ifnextchar[{\@sectionwithtitle{#1}}{\@sectionwithouttitle{#1}}}
+\def\@sectionwithtitle#1[#2]{
+    \section{#1~{\normalfont -- #2}}    % Main section with secondary title
+    \index{#1}                         % Add the main title to the index
+    \index{#1!#2}                      % Add the secondary title as a subentry
+}
+\def\@sectionwithouttitle#1{
+    \section{#1}
+    \index{#1}  % Add the main title to the index
+}
+
+% Section with main title first, optional secondary title second
+\def\sectionwithtitle#1{\@ifnextchar[{\@sectionwithtitle{#1}}{\@sectionwithouttitle{#1}}}
+\def\@sectionwithtitle#1[#2]{
+    \section{#1~{\normalfont -- #2}}    % Main section with secondary title
+    \index{#1}                         % Add the main title to the index
+    \index{#1!#2}                      % Add the secondary title as a subentry
+}
+\def\@sectionwithouttitle#1{
+    \section{#1}
+    \index{#1}  % Add the main title to the index
+}
+
+% Store section title for indexing subsections and subsubsections
+\newcommand{\storedsectiontitle}{}
+\newcommand{\storedsubsectiontitle}{}
+
+% Section with main title first, optional secondary title second
+\def\sectionwithtitle#1{\@ifnextchar[{\@sectionwithtitle{#1}}{\@sectionwithouttitle{#1}}}
+\def\@sectionwithtitle#1[#2]{
+    \def\storedsectiontitle{#1}    % Store the section title
+    \section{#1~{\normalfont -- #2}}    % Main section with secondary title
+    \index{#1}                         % Add the main section title to the index
+    \index{#1!}                        % Make sure the section can have nested subsections
+}
+\def\@sectionwithouttitle#1{
+    \def\storedsectiontitle{#1}  % Store the section title
+    \section{#1}
+    \index{#1}  % Add the main section title to the index
 }
 
 % Subsection with main title first, optional secondary title second
 \def\subsectionwithtitle#1{\@ifnextchar[{\@subsectionwithtitle{#1}}{\@subsectionwithouttitle{#1}}}
 \def\@subsectionwithtitle#1[#2]{
-    \subsection{#1~{\normalfont -- #2}}
+    \def\storedsubsectiontitle{#1}   % Store the subsection title
+    \subsection{#1~{\normalfont -- #2}}   % Main subsection with secondary title
+    \index{\storedsectiontitle!#1}         % Add the subsection title under the parent section
 }
 \def\@subsectionwithouttitle#1{
+    \def\storedsubsectiontitle{#1}   % Store the subsection title
     \subsection{#1}
+    \index{\storedsectiontitle!#1}         % Add the subsection title under the parent section
 }
 
 % Subsubsection with main title first, optional secondary title second
 \def\subsubsectionwithtitle#1{\@ifnextchar[{\@subsubsectionwithtitle{#1}}{\@subsubsectionwithouttitle{#1}}}
 \def\@subsubsectionwithtitle#1[#2]{
-    \subsubsection{#1~{\normalfont -- #2}}
+    \subsubsection{#1~{\normalfont -- #2}}   % Main subsubsection with secondary title
+    \index{\storedsectiontitle!\storedsubsectiontitle!#1}  % Add the subsubsection title under the parent subsection
 }
 \def\@subsubsectionwithouttitle#1{
     \subsubsection{#1}
+    \index{\storedsectiontitle!\storedsubsectiontitle!#1}  % Add the subsubsection title under the parent subsection
 }

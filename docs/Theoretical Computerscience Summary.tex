@@ -15,282 +15,46 @@
     \tableofcontents
     \newpage
 
-    % A named exercise
-    \ex[Getting Started]
-    The easiest way to use this template is to copy the fitting example code from the \verb|examples/| folder.
-    In there, you will find three different variants for different ways of submitting tasks:
+    % section about words
+    \sectionwithtitle{Words}
+    A word \word (also called String) has length \length and consists of symbols \symbol \elem \sigmaS. \newline
+    The empty word \emptyword has length 0. \newline
 
-    \begin{itemize}
-        \item \verb|all-exercises-in-one-file| The whole source code for each task sheet is packed into a single \LaTeX~source file.
-        Recommended if you submit your sheets alone and all tasks should be submitted in one PDF file.
-        \item \verb|exercises-in-split-files| The source code is split into a seperate file for each task but all tasks are compiled into a single PDF file.
-        Recommended if you solve sheets in a group (especially when using Git) and all tasks should be submitted in one PDF file. 
-        \item \verb|pdf-per-exercise| Both the source code and the PDF output is split by task into seperate files.
-        Recommended if task sheets should be submitted with a PDF per task instead per sheet.
-    \end{itemize}
 
-    Once you picked the right example code, you have to change a few lines to it to be ready for use.
+    % section about regular languages
+    \newpage
+    \sectionwithtitle{Regular Languages}
 
-    First of all, you should set the language for your submission.
-    To do so, enter the correct argument (\verb|ngerman| or \verb|english|) for the \verb|\documentclass| command.
-    \begin{minted}{latex}
-        \documentclass[10pt,a4paper,ngerman]{article} % For submissions in German
-        \documentclass[10pt,a4paper,english]{article} % For submissions in English
-    \end{minted}
 
-    Having done this, you have to set the correct path to the headers directory. 
-    You can do so by changing the following line.
-    Remember that \verb|../| means \enquote{go up to the parent folder}.
-    \begin{minted}{latex}
-        \def\headersdir{../../headers/}
-    \end{minted}
+    % section about regular expressions
+    \newpage
+    \sectionwithtitle{Regular Expressions}
+    A regular expression always describes a regular language. If we can build a regular expression E, then L(E) \elem \REG. \newline
 
-    You should also enter some information for the title and page headers.
-    These include the name of the lecture (\verb|\lecture|), 
-    the task sheet number (\verb|\setsheetno|, remove to hide the sheet number), 
-    the due date (\verb|\date|, remove to hide due date),
-    and the authors (\verb|\author|). 
-    Make sure to put these in the preamble (the code before \verb|\begin{document}|).
-    \begin{minted}{latex}
-        \lecture{Foundation of \LaTeX}
-        \setsheetno{1}
-        \date{March 13}
-        \author{Dr. Herrmann Einstein (4201337)}
-    \end{minted}
 
-    With all of this set, you are ready to write down your solutions.
-    Have fun!
+    % section about various proofs techniques
+    \newpage
+    \sectionwithtitle{Common Proof Techniques}
+    \subsectionwithtitle{Pumping Lemma}
+    \subsubsectionwithtitle{Example}
 
-    \pagebreak
-    \ex[Special Task Sheet Macros]
-    To mark the beginning of a new task, subtask, or sub-subtask use the following macros.
-    You can specify a title for the given ((sub-)sub-)task by putting it in square brackets after the respective macro.
-    \begin{minted}{latex}
-        \ex
-        \subex
-        \subsubex
+    \subsectionwithtitle{Myhill Nerode}
+    \subsubsectionwithtitle{Example}
 
-        \ex[An awesome title]
-        \subex[An even more awesome title]
-        \subsubex[The most awesome title]
-    \end{minted}
 
-    To change the style of numbering for the sheet or for tasks, you can use the following macros.
-    These macros can also be used for ((sub-)sub-)tasks by replacing the \verb|\sheet| part inside the macros by \verb|\ex|, \verb|\subex|, or \verb|\subsubex|, respectivly.
-    \begin{minted}{latex}
-        \sheetstylearabic   % Arabic numerals (1, 2, 3, ...)
-        \sheetstyleroman    % Lowercase roman numerals (i, ii, iii, ...)
-        \sheetstyleRoman    % Uppercase roman numerals (I, II, III, ...)
-        \sheetstylealph     % Lowercase latin alphabet (a, b, c, d)
-        \sheetstyleAlph     % Uppercase latin alphabet (A, B, C, D)
-    \end{minted}
+    % section about useful proofs
+    \newpage
+    \sectionwithtitle{Useful Proofs}
+    A regular expression always describes a regular language. If we can build a regular expression E, then L(E) \elem \REG. \newline
 
-    To change the number of a sheet or task, you can use the following macros.
-    Independent of the numbering style, the new number has to be provided in arabic numerals.
-    \begin{minted}{latex}
-        \setsheetno{1}
-        \setexno{3}
-        \setsubexno{3}
-        \setsubsubexno{7}
-    \end{minted}
+    % Stichwortverzeichnis
+    \newpage
+    % Index soll Stichwortverzeichnis heissen
+    % \renewcommand{\indexname}{Stichwortverzeichnis}
+    % Stichwortverzeichnis soll im Inhaltsverzeichnis auftauchen
+    \addcontentsline{toc}{section}{Index}
+    % Stichwortverzeichnis endgueltig anzeigen
+    \printindex
 
-    \pagebreak
-    \ex[Typesetting Math]
-    \newcommand{\coderow}[2]{\mintinline{latex}{#1} & $#1$ & #2 \\}
-    To make typesetting math more convenient, this template provides a plethora of macros that can be used in math mode.
-    
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{@{}lcl@{}}
-        \toprule
-        Source Code & Result & Description \\ \midrule
-        \coderow{\dif x}{d for integrals and differentials}
-        \coderow{\im x}{Imaginary part}
-        \coderow{\re x}{Real part}
-        \coderow{45 \dgr}{Degree sign}
-        \coderow{x \inv}{Inverse}
-        \coderow{x \tx{3}}{Power of ten (scientific notation)}
-        \coderow{\abs{x}}{Absolute value}
-        \coderow{\brk{x}}{Round brackets}
-        \coderow{\sbr{x}}{Square brackets}
-        \coderow{\ceil{x}}{Euclidian round-up brackets}
-        \coderow{\floor{x}}{Euclidian round-down brackets}
-        \coderow{\set{x}}{Set}
-        \coderow{\set{x \where y}}{Set with condition}
-        \coderow{x \bdiv y}{Integer division}
-        \coderow{x \bmod y}{Integer division remainder}
-        \coderow{\vcol}{Vertically centered colon}
-        \coderow{\defeq}{Definition operator}
-        \coderow{\eqdef}{Mirrored definition operator}
-        \midrule
-        \coderow{\NN}{Set of Natural Numbers}
-        \coderow{\ZZ}{Set of Integers}
-        \coderow{\QQ}{Set of Rational Numbers}
-        \coderow{\RR}{Set of Real Numbers}
-        \coderow{\CC}{Set of Complex Numbers}
-        \coderow{\PP}{Set of Prime Numbers}
-        \coderow{\HH}{Set of Quarternions}
-        \coderow{\BB}{Set of Booleans}
-        \midrule
-        \coderow{\EE}{Expected value}
-        \coderow{\Ave}{Average}
-        \coderow{\Var}{Variance}
-        \coderow{\Cov}{Covariance}
-        \coderow{\Pr}{Probability}
-        \midrule
-        \coderow{\frac{x}{y}}{Fraction}
-        \coderow{\sfrac{x}{y}}{Diagonal fraction}
-        \coderow{\bsfrac{x}{y}}{Backwards diagonal fraction}
-        \bottomrule
-        \end{tabular}
-    \end{table}
-
-    \emph{Continued on the following page...}
-
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{@{}lcl@{}}
-        \toprule
-        Source Code & Result & Description \\ \midrule
-        \coderow{\bigO}{Landau symbols (Big-O notation)}
-        \coderow{\R}{Recursive languages}
-        \coderow{\RE}{Recursively enumerable languages}
-        \coderow{\REG}{Regular languages}
-        \coderow{\coRE}{Complement-recursively enumerable languages}
-        \coderow{\REC}{Recursively decidable languages}
-        \coderow{\P}{Polynomial-time problems}
-        \coderow{\NP}{Nondeterministic poly-time problems}
-        \coderow{\coNP}{Complement-nondeterministic poly-time problems}
-        \coderow{\DSpace}{Deterministic space class}
-        \coderow{\NSpace}{Nondeterministic space class}
-        \coderow{\DTime}{Deterministic time class}
-        \coderow{\NTime}{Nondeterministic time class}
-        \bottomrule
-        \end{tabular}
-    \end{table}
-
-    Apart from these new macros, the template loads the \verb|amsmath| and \verb|amsthm| packages to provide the most relevant math macros and environments.
-
-    \pagebreak
-    \ex[Displaying Code]
-
-    \subex[Real code]
-
-    To render code into your submissions, you can use the features provided by \verb|minted|.
-    Take the following python snippet.
-
-    \begin{minted}{python}
-        def fib(n):
-            if n == 0 or n == 1:
-                return 1
-            return fib(n - 1) + fib(n - 2)
-    \end{minted}
-
-    You can render it using this code:
-    \begin{minted}[escapeinside=||]{latex}
-        \begin{minted}{python}
-            def fib(n):
-                if n == 0 or n == 1:
-                    return 1
-                return fib(n - 1) + fib(n - 2)
-        \end||{minted}
-    \end{minted}
-
-    \subex[Pseudocode]
-    To produce pseudocode, you can use the \texttt{pseudo} environment.
-
-    \begin{multicols}{2}
-        Take this sample program from the TCS lecture:
-        \begin{pseudo}
-            $P'$\;
-            \eIf{$x_1 \neq 0$}{
-                $x_0 \defeq x_0$
-            }{
-                \For{$x_0$}{
-                    Do nothing...
-                }
-            }\;
-            \If{$x_0 = 0$}{
-                $x_0 \defeq 1$\;
-                \While{$x_0 \neq 0$}{
-                    $x_1 \defeq 1$
-                }
-            }
-            \caption{Construction $P$}
-        \end{pseudo}
-    
-        You can render it using this code:
-        \begin{minted}[linenos=0]{latex}
-            \begin{pseudo}
-                $P'$\;
-                \eIf{$x_1 \neq 0$}{
-                    $x_0 \defeq x_0$
-                }{
-                    \For{$x_0$}{
-                        Do nothing...
-                    }
-                }\;
-                \If{$x_0 = 0$}{
-                    $x_0 \defeq 1$\;
-                    \While{$x_0 \neq 0$}{
-                        $x_1 \defeq 1$
-                    }
-                }
-                \caption{Construction $P$}
-            \end{pseudo}
-        \end{minted}
-    \end{multicols}
-    
-    \pagebreak
-    \ex[Drawing Automata]
-    You can use TikZ to draw automata.
-    See the following example:
-
-    \begin{figure}[h]
-        \centering
-
-        \begin{tikzpicture}[node distance=3cm, auto]
-            % Define states
-            \node[state, initial] (s0)  {$S_0$};
-            \node[state, below right = of s0] (s1)  {$S_1$};
-            \node[state, above right = of s1] (s2)  {$S_2$};
-            \node[state, accepting, above left = of s2] (s3)  {$S_3$};
-            
-            % Define transitions
-            \path[->]
-                (s0) edge [loop above] node {0} ()
-                (s3) edge [loop left] node {0, 1} ()
-                
-                (s0) edge [bend right] node {1} (s1)
-                (s1) edge [bend right] node {0} (s0)
-                (s1) edge [swap] node {1} (s2)
-                (s2) edge [swap] node {1} (s3)
-                (s2) edge [swap] node {0} (s0)
-            ;
-        \end{tikzpicture}
-    \end{figure}
-
-    You can produce it using this code:
-    \begin{minted}{latex}
-        \begin{tikzpicture}[node distance=3cm, auto]
-            % Define states
-            \node[state, initial] (s0)  {$S_0$};
-            \node[state, below right = of s0] (s1)  {$S_1$};
-            \node[state, above right = of s1] (s2)  {$S_2$};
-            \node[state, accepting, above left = of s2] (s3)  {$S_3$};
-            
-            % Define transitions
-            \path[->]
-                (s0) edge [loop above] node {0} ()
-                (s3) edge [loop left] node {0, 1} ()
-                
-                (s0) edge [bend right] node {1} (s1)
-                (s1) edge [bend right] node {0} (s0)
-                (s1) edge [swap] node {1} (s2)
-                (s2) edge [swap] node {1} (s3)
-                (s2) edge [swap] node {0} (s0)
-            ;
-        \end{tikzpicture}
-    \end{minted}
 
 \end{document}

@@ -45,7 +45,7 @@
 \newcommand{\bigO}{\mathcal{O}}
 \newcommand{\R}{\mathsf{R}}
 \newcommand{\RE}{\mathsf{RE}}
-\newcommand{\REG}{\mathsf{REG}}
+\newcommand{\REG}{\ensuremath{\mathsf{REG}}}
 \newcommand{\coRE}{\mathsf{co\!-\!RE}}
 \newcommand{\NRE}{\mathsf{NRE}}
 \newcommand{\REC}{\mathsf{REC}}
@@ -57,9 +57,18 @@
 \newcommand{\DTime}{\mathsf{DTime}}
 \newcommand{\NTime}{\mathsf{NTime}}
 \newcommand{\NL}{\mathsf{NL}}
-\newcommand{\eps}{\varepsilon}         % For epsilon (you can also use \epsilon if you prefer)
-\newcommand{\elem}{\in}               % For element of symbol
-\newcommand{\notelem}{\notin}         % For not element of symbol
+\newcommand{\emptyword}{\ensuremath{\varepsilon}\xspace}    % For epsilon (you can also use \epsilon if you prefer)
+\newcommand{\elem}{\ensuremath{\in}\xspace}                 % For element of symbol
+\newcommand{\notelem}{\ensuremath{\notin}\xspace}           % For not element of symbol
+% For sigma-related symbols
+\newcommand{\sigmaS}{\ensuremath{\mathsf{\Sigma}}\xspace}   % For sigma in sans-serif font
+\newcommand{\sumS}{\ensuremath{\sum}\xspace}                % For summation symbol
+\newcommand{\sigmasub}{\ensuremath{\sigma}\xspace}          % For sigma (regular)
+\newcommand{\notsigma}{\ensuremath{\not\in}\xspace}         % For not sigma (similar to not element)
+
+\newcommand{\word}{\ensuremath{w}\xspace}                   % Representing a word w
+\newcommand{\length}{\ensuremath{l}\xspace}                 % Representing a word length l
+\renewcommand{\symbol}{\ensuremath{\sigma}\xspace}          % Representing a symbol sigma
 
 % Statistik
 \newcommand{\EE}{\mathbb{E}} % Erwartungswert
