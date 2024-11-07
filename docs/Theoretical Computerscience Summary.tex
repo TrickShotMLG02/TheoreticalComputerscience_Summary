@@ -55,7 +55,7 @@
 
     \subsectionwithtitle{Myhill Nerode}
     \subsubsectionwithtitle{Example}
-
+    \todo{Add example for Myhill Nerode}
 
     % section about useful proofs
     \newpage
@@ -111,8 +111,26 @@
 
     \newpage
     \subsectionwithtitle{Non-Regular Languages}
+    
+    \subsubsection{Pumping Lemma}
+    \textbf{Exercise}:\newline
+    Show that the following language is not regular over the alphabet $ \{0,1\} $.\newline
+    $L=\{0^n 1^n \mid n \elem \NN \}$\newline\newline
+    \textbf{Solution}:\newline
+    Let $n \geq 0$ be given.\newline
+    We choose $u=1^n$, $v=1^n$, $w=1^n$ such that $uvw=1^{3n}$ and $\abs{v}=n$.\newline
+    Let $x,y,z$ be given as $x=1^r$, $y=1^s$, $z=1^t$ with $xyz=v$ and $s \ge 0$ since $y \neq \emptyword$ and $r+s+t=n$.\newline
+    $uxy^izw=1^n 1^r 1^{s \cdot i} 1^t 1^n=1^n 1^{r+s+t} 1^{s \cdot (i-1)} 1^n$\newline
+    We choose $i=0$, therefore $1^n 1^{r+s+t} 1^{s \cdot (i-1)} 1^n = 1^n 1^{n-s} 1^n$ \notelem $A$ since it is not of the form $1^{3m}$ anymore for any $m$ \elem \NN.\newline
+    Therefore we cannot pump language $A$ and thus it is not regular.\newline
 
 
+    \subsubsection{Myhill Nerode}
+    \textbf{Exercise}:\newline
+    Show that the following language is not regular over the alphabet $ \{0,1\} $.\newline
+    $L=\{0^n 1^n \mid n \elem \NN \}$\newline\newline
+    \textbf{Solution}:\newline
+    \todo{Add solution for Myhill Nerode}
 
     % Stichwortverzeichnis
     \newpage

@@ -195,3 +195,11 @@
     \subsubsection{#1}
     \index{\storedsectiontitle!\storedsubsectiontitle!#1}  % Add the subsubsection title under the parent subsection
 }
+
+
+% Define a \todo command
+\newcommand{\todo}[1]{%
+  \noindent
+  \fcolorbox{red}{white}{\textcolor{red}{\textbf{TODO: #1}}}
+  \addcontentsline{toc}{section}{TODO: #1}
+}
