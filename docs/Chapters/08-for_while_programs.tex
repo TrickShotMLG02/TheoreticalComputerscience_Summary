@@ -1,2 +1,41 @@
 \sectionwithtitle{FOR and WHILE programs}
-    \todo{Add chapter contents}
+
+    \subsectionwithtitle{WHILE programming language}
+        Variables: $x_0, x_1, \ldots, x_n$\newline
+        Constants: $0, 1, 2, \ldots$\newline
+        Keywords: while, do, od\newline
+        Other symbols: $:=$,$\neq$, $;$, $+$, $-$, $[,]$\newline
+
+        $W_0$: set of all simple statements\newline
+
+    \subsectionwithtitle{FOR programming language}
+        Variables: $x_0, x_1, \ldots, x_n$\newline
+        Constants: $0, 1, 2, \ldots$\newline
+        Keywords: for, do, od\newline
+        Other symbols: $:=$,$\neq$, $;$, $+$, $-$, $[,]$\newline
+    
+    \subsectionwithtitle{Semantics}
+        Input is stored in $x_0, \ldots, x_{s-1}$
+        Output is the content of $x_0$ after execution of $P$.\newline
+        The set $X = \{ x_0, x_1, x_2, \ldots \}$ if akk variables is finite.\newline
+
+    \subsectionwithtitle{FOR/WHILE computable functions}
+        \begin{enumerate}
+            \item A partial function $f: \NN^s \rightarrow \NN$ is WHILE computable, if there is
+            a WHILE program P such that $f = \phi_P$.
+            \item f is FOR computable if $f = \phi_P$ for some FOR program P.
+            \item The set of all WHILE computable functions is denoted by R.
+            \item The set of all FOR computable functions is denoted by PR.
+        \end{enumerate}
+
+    \subsectionwithtitle{Decidable languages}
+        The characteristic function of L is the function $\chi_L: \NN \rightarrow \NN$ defined by
+        \begin{equation}
+            \chi_L(x) = \begin{cases}
+                1 & \text{if } x \in L \\
+                0 & \text{if } x \notin L
+            \end{cases}
+        \end{equation}
+
+        A language L is decidable if $\chi_L$ is computable ($\chi_L \elem R$).\newline
+        The set of all decidable languages is denoted by \REC.\newline
