@@ -1,2 +1,18 @@
 \sectionwithtitle{Gödel numberings}
-    \todo{Add chapter contents}
+    Bijection $göd : W \rightarrow \NN$\newline
+    WHILE program $U$, that outputs $\phi_P(x)$ in input $i,x \elem \NN$ where $P = \text{göd}^{-1}(i)$.\newline
+
+    \subsectionwithtitle{Encoding}
+        Simple Statements:
+        \begin{enumerate}
+            \item $x_i := x_j + x_k$ is encoded by $\langle 0, \langle i, \langle j, k \rangle \rangle \rangle_5$
+            \item $x_i := x_j - x_k$ is encoded by $\langle 1, \langle i, \langle j, k \rangle \rangle \rangle_5$
+            \item $x_i := c$ is encoded by $\langle 2, \langle i, c \rangle \rangle_5$
+        \end{enumerate}
+
+        While loop and concatenation:
+        \begin{enumerate}
+            \item If $P = \text{while } x_i \neq 0 \text{ do } P_1 \text{ od}$ is encoded by
+            $\langle 3, \langle i, \text{göd} (P_1) \rangle \rangle_5$
+            \item If $P = [P_1;P_2]$ then göd$(P) = \langle 4, \langle \text{göd}(P_1), \text{göd}(P_2) \rangle \rangle_5$
+        \end{enumerate}
