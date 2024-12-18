@@ -1,0 +1,28 @@
+\sectionwithtitle{Reductions}
+    \subsectionwithtitle{Known problems}
+    \subsubsectionwithtitle{Verification Problem $V$}
+    The verification problem has two gödel number inputs namely $i, j$ and checks if the two programs corresponding to these gödel numbers output the same
+    for every possible input.\newline
+
+    \subsubsectionwithtitle{Special Verification Problem $V_0$}
+    The special verification problem has a gödel number $i$ as input and checks if the program corresponding to that gödel number will output
+    0 for every possible input.\newline
+
+    \subsubsectionwithtitle{Program termination $T$}
+    The program termination problem has a gödel number $i$ as input and checks if the program corresponding to that gödel number will terminate
+    for every possible input.\newline
+    \todo{Add chapter contents}
+
+    \subsectionwithtitle{Many-one Reduction}
+    A WHILE computable total function $f: \NN \rightarrow \NN$ is called many-one reduction from $L$ to $L'$ if
+    \begin{itemize}
+        \item $L, L' \subseteq \NN$
+        \item $\forall x \elem \NN: x \elem L \iff f(x) \elem L'$
+    \end{itemize}
+    If such an $f$ exists, then $L$ is many-one reducible to $L'$, therefore we can write $L \leq L'$\newline
+
+    \subsectionwithtitle{Known Reductions}
+    $H_0 \leq V_0$\newline
+    $V_0 \leq V$\newline
+    $V_0 \leq T$\newline
+    $\complement{H_0} \leq V_0$\newline

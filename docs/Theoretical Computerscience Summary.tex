@@ -17,244 +17,82 @@
     \newpage
 
     % section about words
-    \sectionwithtitle{Words}
-    A word \word (also called String) has length \length and consists of symbols \symbol \elem \sigmaS. \newline
-    The empty word \emptyword has length 0. \newline
+    \include{Chapters/01-words.tex}
+    \newpage
 
 
     % section about regular languages
+    \include{Chapters/02-regular_languages.tex}
     \newpage
-    \sectionwithtitle{Regular Languages}
 
 
     % section about regular expressions
+    \include{Chapters/03-regular_expressions.tex}
     \newpage
-    \sectionwithtitle{Regular Expressions}
-    A regular expression always describes a regular language. If we can build a regular expression E, then L(E) \elem \REG. \newline
-
 
 
     % section about The Pumping Lemma
+    \include{Chapters/04-pumping_lemma.tex}
     \newpage
-    \sectionwithtitle{The Pumping Lemma}
-    \todo{Add chapter contents}
 
 
     % section about Equivalence Relations
+    \include{Chapters/05-equivalence_relations.tex}
     \newpage
-    \sectionwithtitle{Equivalence Relations}
-    \todo{Add chapter contents}
 
 
     % section about Myhill Nerode
+    \include{Chapters/06-myhill_nerode.tex}
     \newpage
-    \sectionwithtitle{Myhill Nerode}
-    \todo{Add chapter contents}
 
 
     % section about Limits of computability
+    \include{Chapters/07-computability.tex}
     \newpage
-    \sectionwithtitle{Limits of computability}
-    \todo{Add chapter contents}
 
 
     % section about FOR and WHILE programs
+    \include{Chapters/08-for_while_programs.tex}
     \newpage
-    \sectionwithtitle{FOR and WHILE programs}
-    \todo{Add chapter contents}
 
 
     % section about Syntactic Sugar
+    \include{Chapters/09-syntactic_sugar.tex}
     \newpage
-    \sectionwithtitle{Syntactic Sugar}
-    \todo{Add chapter contents}
 
 
     % section about Gödel numberings
+    \include{Chapters/10-goedel_numbering.tex}
     \newpage
-    \sectionwithtitle{Gödel numberings}
-    \todo{Add chapter contents}
 
 
     % section about Diagonalisation
+    \include{Chapters/11-diagonalisation.tex}
     \newpage
-    \sectionwithtitle{Diagonalisation}
-    \todo{Add chapter contents}
 
 
     % section about Universal WHILE Program
+    \include{Chapters/12-universal_while_program.tex}
     \newpage
-    \sectionwithtitle{Universal WHILE Program}
-    \todo{Add chapter contents}
 
 
     % section about Halting Problem
+    \include{Chapters/13-halting_problem.tex}
     \newpage
-    \sectionwithtitle{Halting Problem}
-    \todo{Add chapter contents}
 
 
     % section about Reductions
+    \include{Chapters/14-reductions.tex}
     \newpage
-    \sectionwithtitle{Reductions}
-    \subsectionwithtitle{Known problems}
-    \subsubsectionwithtitle{Verification Problem $V$}
-    The verification problem has two gödel number inputs namely $i, j$ and checks if the two programs corresponding to these gödel numbers output the same
-    for every possible input.\newline
-
-    \subsubsectionwithtitle{Special Verification Problem $V_0$}
-    The special verification problem has a gödel number $i$ as input and checks if the program corresponding to that gödel number will output
-    0 for every possible input.\newline
-
-    \subsubsectionwithtitle{Program termination $T$}
-    The program termination problem has a gödel number $i$ as input and checks if the program corresponding to that gödel number will terminate
-    for every possible input.\newline
-    \todo{Add chapter contents}
-
-    \subsectionwithtitle{Many-one Reduction}
-    A WHILE computable total function $f: \NN \rightarrow \NN$ is called many-one reduction from $L$ to $L'$ if
-    \begin{itemize}
-        \item $L, L' \subseteq \NN$
-        \item $\forall x \elem \NN: x \elem L \iff f(x) \elem L'$
-    \end{itemize}
-    If such an $f$ exists, then $L$ is many-one reducible to $L'$, therefore we can write $L \leq L'$\newline
-
-    \subsectionwithtitle{Known Reductions}
-    $H_0 \leq V_0$\newline
-    $V_0 \leq V$\newline
-    $V_0 \leq T$\newline
-    $\complement{H_0} \leq V_0$\newline
-
 
     % section about various proofs techniques
+    \include{Chapters/additional-proof_techniques.tex}
     \newpage
-    \sectionwithtitle{Common Proof Techniques}
-    \subsectionwithtitle{Pumping Lemma}
-    The pumping lemma can only be used to show that a language is not \REG. We take a word \word \elem $L$ and split it into multiple sub words $u,v,w$
-    where $\abs{v}\geq n$ with $n \ge 0$. Now there are words $x,y,z$ with $v=xyz$ and $\abs{y} \ge 0$ such that $uxy^izw$ \elem $L$ for all
-    $i$ \elem \NN. Afterwards we try to find an $i$ such that the pumped word is no longer \elem $L$ and thus we proved that the language is not regular.
-
-    \subsubsectionwithtitle{Example}
-    \textbf{Exercise}:\newline
-    Show that the following language is not regular.\newline
-    Let $A=\{ 1^{(3n)} \mid n \elem \NN \}$\newline\newline
-    \textbf{Solution}:\newline
-    Let $n \geq 0$ be given.\newline
-    We choose $u=1^n$, $v=1^n$, $w=1^n$ such that $uvw=1^{3n}$ and $\abs{v}=n$.\newline
-    Let $x,y,z$ be given as $x=1^r$, $y=1^s$, $z=1^t$ with $xyz=v$ and $s \ge 0$ since $y \neq \emptyword$ and $r+s+t=n$.\newline
-    $uxy^izw=1^n 1^r 1^{s \cdot i} 1^t 1^n=1^n 1^{r+s+t} 1^{s \cdot (i-1)} 1^n$\newline
-    We choose $i=0$, therefore $1^n 1^{r+s+t} 1^{s \cdot (i-1)} 1^n = 1^n 1^{n-s} 1^n$ \notelem $A$ since it is not of the form $1^{3m}$ anymore for any $m$ \elem \NN.\newline
-    Therefore we cannot pump language $A$ and thus it is not regular.\newline
-
-    \subsectionwithtitle{Myhill Nerode}
-    \subsubsectionwithtitle{Example}
-    \todo{Add example for Myhill Nerode}
-
-    \newpage
-
-    \subsectionwithtitle{Reductions}
-    \subsubsectionwithtitle{Example}
-    \textbf{Exercise}:\newline
-    Consider the following language $L = \{ i \elem \NN \mid \text{göd}^{-1}(i) \text{ outputs 42 on input 1337} \}$\newline
-    Prove $L \notelem \coRE$\newline\newline
-    \textbf{General Ideas}:\newline
-    $\complement{L}$ is the set of all programs that either diverge or output something else than 42 on input 1337.\newline
-    $L$ is the set of all programs that output 42 on input 1337 which is equal to running a sub program that halts on every input and outputting 42 afterwards.
-    Thus we could try to reduce the special halting problem $H_0$ to $L$.\newline\newline
-    \textbf{Solution}:\newline
-    $\forall L: L \elem \REC \iff L \elem \RE \wedge \complement{L} \elem \RE$\newline
-    $L \notelem \coRE \iff \complement{L} \elem \RE$\newline\newline
-    $H_0 \notelem \REC$ but $H_0 \elem \RE$, therefore $\complement{H_0} \notelem \RE$ thus reducing $\complement{H_0} \leq \complement{L}$ suffices to show that
-    $\complement{L} \notelem \RE$ but this is the same as $H_0 \leq L$ by equivalence.\newline\newline
-    The reduction is given by $f(i) := \text{göd}(P)$\newline
-    We create the WHILE program $P$, that has input $m$. However we ignore the input $m$ and simulate $i$ on the input $i$, then return 42.
-    Thus $f$ is obviously WHILE computable.\newline\newline
-    We consider the following two cases:
-    \begin{itemize}
-        \item Let $i \elem H_0$, then $i$ halts on input $i$ by definition. Program $P$ halts on arbitrary inputs m and outputs 42.
-        Therefore $P$ also outputs 42 on our input 1337.\newline
-        Thus $\text{göd}(P) \elem L$ holds.
-        \item Let $i \notelem H_0$, then $i$ does not halt on input $i$ by definition. Therefore Program $P$ diverges on all inputs, which is also the case for input 1337.\newline
-        Therefore $P$ diverges on our input 1337.\newline
-        Thus $\text{göd}(P) \notelem L$ holds.
-    \end{itemize}
-    Therefore we have successfully shown that $H_0 \leq L$ is a valid reduction.
-
 
     % section about useful proofs
+    \include{Chapters/additional-useful_proofs.tex}
     \newpage
-    \sectionwithtitle{Useful Proofs}
-
-    \subsectionwithtitle{Regular Languages}
-
-    \subsubsectionwithtitle{Finite Set}
-    \textbf{Exercise}:\newline
-    Show that the following language is regular over the alphabet $ \{0,1\} $.\newline
-    $L=\{x \mid x \text{ is prime and } x < 1'000'000'000\}$\newline\newline
-    \textbf{Solution}:\newline
-    Since there are only finitely many prime numbers between $0$ and $1'000'000'000$, the set of the words that are accepted by $L$
-    is finite and thus the language is regular.\newline
-
-
-    \subsubsectionwithtitle{Finite Automaton}
-    \textbf{Exercise}:\newline
-    Show that the following language is regular over the alphabet $ \{0,1\} $.\newline
-    $L=\{0^n 10^m \mid n,m \elem \NN \}$\newline\newline
-    \textbf{Solution}:\newline
-    \begin{figure}[h]
-        \centering
-        \begin{tikzpicture}[node distance=3cm, auto]
-            % Define states
-            \node[state, initial] (s0)  {$S_0$};
-            \node[state, accepting, right=of s0] (s1)  {$S_1$};
-            
-            % Define transitions
-            \path[->]
-                (s0) edge [loop above] node {0} ()
-                (s1) edge [loop above] node {0} ()
-                
-                (s0) edge [->] node {1} (s1)
-            ;
-        \end{tikzpicture}
-    \end{figure}
-
-    Since we can describe the language $L$ by the finite automaton given above, the language is regular.\newline
-
-
-    \subsubsectionwithtitle{Regular Expression}
-    \textbf{Exercise}:\newline
-    Show that the following language is regular over the alphabet $ \{0,1\} $.\newline
-    $L=\{0^n 1^m \mid n,m \elem \NN \}$\newline\newline
-    \textbf{Solution}:\newline
-    Let $E=0^* 1^*$ be the regular expression describing the language $L$.\newline
-    Since we can describe the language $L$ by the regular expression given above, the language is regular.\newline
-
-
-    \subsubsectionwithtitle{Closure Properties}
-
-
-    \newpage
-    \subsectionwithtitle{Non-Regular Languages}
     
-    \subsubsection{Pumping Lemma}
-    \textbf{Exercise}:\newline
-    Show that the following language is not regular over the alphabet $ \{0,1\} $.\newline
-    $L=\{0^n 1^n \mid n \elem \NN \}$\newline\newline
-    \textbf{Solution}:\newline
-    Let $n \geq 0$ be given.\newline
-    We choose $u=1^n$, $v=1^n$, $w=1^n$ such that $uvw=1^{3n}$ and $\abs{v}=n$.\newline
-    Let $x,y,z$ be given as $x=1^r$, $y=1^s$, $z=1^t$ with $xyz=v$ and $s \ge 0$ since $y \neq \emptyword$ and $r+s+t=n$.\newline
-    $uxy^izw=1^n 1^r 1^{s \cdot i} 1^t 1^n=1^n 1^{r+s+t} 1^{s \cdot (i-1)} 1^n$\newline
-    We choose $i=0$, therefore $1^n 1^{r+s+t} 1^{s \cdot (i-1)} 1^n = 1^n 1^{n-s} 1^n$ \notelem $A$ since it is not of the form $1^{3m}$ anymore for any $m$ \elem \NN.\newline
-    Therefore we cannot pump language $A$ and thus it is not regular.\newline
-
-
-    \subsubsection{Myhill Nerode}
-    \textbf{Exercise}:\newline
-    Show that the following language is not regular over the alphabet $ \{0,1\} $.\newline
-    $L=\{0^n 1^n \mid n \elem \NN \}$\newline\newline
-    \textbf{Solution}:\newline
-    \todo{Add solution for Myhill Nerode}
 
     % Stichwortverzeichnis
     \newpage
