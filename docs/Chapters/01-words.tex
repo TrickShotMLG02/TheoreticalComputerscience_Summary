@@ -1,4 +1,18 @@
 \sectionwithtitle{Words}
-A word \word (also called String) has length \length and consists of symbols \symbol \elem \sigmaS. \newline
-The empty word \emptyword has length 0. \newline
+    A word \word (also called String) has length \length and consists of symbols \symbol \elem \sigmaS.\newline
+    The empty word \emptyword has length 0.\newline
+    The concatenation of two words $w$ and $x$ is denoted as $wx$.\newline
+    $w^i$ denotes the i-fold concatenation of $w$ with itself. Therefore $w^3$ = $www$.\newline
+    $\emptyword w$ = $w \emptyword$ = $w$.\newline
+
+\subsectionwithtitle{Subwords}
+    A word $w$ is a subword of a word $x$ if there exist words $u$ and $v$ such that $x = uwv$.\newline
+    The empty word is a subword of every word.\newline
+    The word $w$ is a subword of itself.\newline
+
+\subsectionwithtitle{Prefixes and Suffixes}
+    A word $w$ is a prefix of a word $x$ if there exists a word $v$ such that $x = wv$.\newline
+    A word $w$ is a suffix of a word $x$ if there exists a word $u$ such that $x = uw$.\newline
+    The empty word is a prefix and suffix of every word.\newline
+    The word $w$ is a prefix and suffix of itself.\newline
 \todo{Add chapter contents}
