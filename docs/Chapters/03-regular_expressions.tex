@@ -1,3 +1,31 @@
 \sectionwithtitle{Regular Expressions}
     A regular expression always describes a regular language. If we can build a regular expression E, then L(E) \elem \REG. \newline
-    \todo{Add chapter contents}
+    
+    \subsectionwithtitle{Languages of regular expressions}
+    If $E = \emptyset$ then $L(E) = \emptyset$\newline
+    If $E = \emptyword$ then $L(E) = \{\emptyword\}$\newline
+    If $E = \symbol$ then $L(E) = \{ \symbol \}$\newline
+    If $E = (E_1 + E_2)$ then $L(E) = L(E_1) \cup L(E_2)$\newline
+    If $E = (E_1 E_2)$ then $L(E) = L(E_1) L(E_2)$\newline
+    If $E = (E_1)^*$ then $L(E) = L(E_1)^*$\newline
+
+    \subsectionwithtitle{Identities}
+    \begin{enumerate}
+        \item $E + F = F + E$
+        \item $(E + F) + G = E + (F + G)$
+        \item $(EF)G = E(FG)$
+        \item $\emptyset + E = E + \emptyset = E$
+        \item $\emptyword E = E \emptyword = E$
+        \item $\emptyset E = E \emptyset = \emptyset$
+        \item $E + E = E$
+        \item $(E + F)G = (EG) + (FG)$
+        \item $E(F + G) = (EF) + (EG)$
+        \item $(E^*)^* = E^*$
+        \item $\emptyset ^* = \emptyword$
+        \item $\emptyword^* = \emptyword$
+    \end{enumerate}
+
+    \subsectionwithtitle{Regular expressions and finite automata}
+    If $E$ is a regular expression, then $L(E) \elem \REG$.\newline
+    For every deterministic finite automaton $M = (Q, \sumS, \delta, q_0, Q_{acc})$ there is a regular
+    expression $E$ with $L(M) = L(E)$.\newline
