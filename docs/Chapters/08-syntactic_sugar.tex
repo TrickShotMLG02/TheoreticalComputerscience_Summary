@@ -1,2 +1,78 @@
 \sectionwithtitle{Syntactic Sugar}
-    \todo{Add chapter contents}
+    
+    \subsectionwithtitle{Syntactic Sugar}
+        \begin{multicols}{2}
+            \begin{pseudo}
+                $x_k \defeq 0$;\\
+                $x_i \defeq x_j + x_k$;
+                \caption{Assignments $x_i \defeq x_j$}
+            \end{pseudo}
+        \end{multicols}
+
+    \subsectionwithtitle{Arithmetic Operations}
+        \begin{multicols}{2}
+            \begin{pseudo}
+                $x_i \defeq 0$;\\
+                \For{$x_j$}{
+                    $x_i \defeq x_i + x_k$
+                }
+                \caption{Multiplication $x_i \defeq x_j \cdot x_k$}
+            \end{pseudo}
+        \end{multicols}
+        We assume that $i \neq j,k$
+    
+    \subsectionwithtitle{Pairing Functions}
+        $\langle x_1, x_2 \rangle = \frac{1}{2} \cdot \left( x_1 + x_2 \right) \cdot \left( x_1 + x_2 + 1 \right) + x_2$\newline
+        $\pi_i \left( \langle x_1, x_2 \rangle \right) = x_i$ for $i = 1,2$ and $x_1, x_2 \in \NN$\newline
+
+
+    \newpage
+
+    \subsectionwithtitle{Stacks}
+        $S = \langle n, Y \rangle$\newline
+        $n \in \NN$ is the number of elements in the stack and $Y \in \NN^n$ is the stack itself\newline
+        The empty stack is $\langle 0, 0 \rangle$\newline
+        If $a_1, \ldots, a_n$ is stored in $S$, then $Y = \langle a_n, \langle a_{n-1}, \ldots \langle a_1, 0 \rangle \ldots \rangle \rangle$\newline
+
+        \begin{multicols}{2}
+            \begin{pseudo}
+                $Y \defeq \langle x, \pi_2(S) \rangle$\;
+                $S \defeq \langle \pi_1(S) + 1, Y \rangle$;
+                \caption{$push \left( S, x \right)$}
+            \end{pseudo}
+        \end{multicols}
+
+        \begin{multicols}{2}
+            \begin{pseudo}
+                $n \defeq \pi_1(S)$\;
+                \If{$n \neq 0$} {
+                    $S \defeq \langle n-1, \pi_2(\pi_2(S)) \rangle$;
+                }
+                \caption{$pop \left( S \right)$}
+            \end{pseudo}
+        \end{multicols}
+
+        \begin{multicols}{2}
+            \begin{pseudo}
+                $x \defeq \pi_1(\pi_2 (S))$\;
+                \caption{$x = top \left( S \right)$}
+            \end{pseudo}
+        \end{multicols}
+
+        \begin{multicols}{2}
+            \begin{pseudo}
+                $n \defeq \pi_1(S)$\;
+                \eIf{$n \ge 0$}{
+                    $b \defeq 0$;
+                }{
+                    $b \defeq 1$;
+                }
+                \caption{$b = isempty \left( S \right)$}
+            \end{pseudo}
+        \end{multicols}
+
+
+    \newpage
+
+    \subsectionwithtitle{Arrays}
+        \todo{Add array implementation}
